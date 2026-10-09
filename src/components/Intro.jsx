@@ -13,7 +13,7 @@ export default function Intro() {
   }, []);
   return (
     <>
-<section className="section scrollspy full-height" id="intro" style={{backgroundColor: '#6eaca1', marginTop: '-100px'}}>
+<section className="section scrollspy full-height" id="intro" style={{backgroundColor: '#6eaca1', marginLeft: '200px'}}>
 <div className="overlay"></div>
 <div className="container" style={{width: '90%'}}>
 <div className="col-md-9" style={{width: '100%', height: '826px'}}>
@@ -21,7 +21,7 @@ export default function Intro() {
 <div className="caption">
 <h2 style={{marginTop: '-50px', marginLeft: '90px'}}>Hi, I'm <span className="teal">Habte Selassie Fitsum.</span></h2>
 <button id="theme-toggle" style={{backgroundColor: '#004d40', color: 'aqua'}}></button>
-<h5 style={{color: '#fff', marginLeft: '85px'}}>A <span className="typing" style={{fontWeight: '300', color: '#004d40'}}></span></h5>
+<h5 style={{color: '#fff', marginLeft: '85px'}}>A <span className="typing" style={{fontWeight: '300', color: '#ffffff'}}></span></h5>
 <h5 style={{lineHeight: '2', color: 'rgb(230, 224, 224)', fontSize: '26px', fontWeight: '300', marginLeft: '90px'}}>
                 Experienced dynamic software engineer with 2-3 years' expertise in designing and implementing scalable systems.
                 Thrive on solving complex problems and contributing to innovative projects within cross-functional teams.
