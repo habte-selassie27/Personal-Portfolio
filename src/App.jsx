@@ -14,16 +14,26 @@ import './styles.css';
 export default function App() {
   useEffect(() => {
     if (window.$) {
-      window.$('.scrollspy').scrollSpy();
-      window.$('.button-collapse').sideNav({
-        menuWidth: 690,
-        edge: 'left',
-        closeOnClick: true,
-      });
       window.$('.theme-switch').on('click', function () {
         window.$('body').toggleClass('light-theme');
       });
     }
+
+    const sectionIds = ['intro', 'about', 'experience', 'projects', 'skills', 'education', 'certificates', 'contact'];
+    const onScroll = () => {
+      let current = sectionIds[0];
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= 120) current = id;
+      }
+      document.querySelectorAll('.nav-link').forEach((link) => {
+        const active = link.getAttribute('href') === `#${current}`;
+        link.classList.toggle('active', active);
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (

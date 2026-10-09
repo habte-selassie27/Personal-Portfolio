@@ -1,82 +1,48 @@
+const NAV_ITEMS = [
+  { label: 'About', href: '#about', icon: 'mdi-social-person', aria: 'Navigate to the About section' },
+  { label: 'Experience', href: '#experience', icon: 'mdi-action-trending-up', aria: 'Navigate to the Experience section' },
+  { label: 'Projects', href: '#projects', icon: 'mdi-av-my-library-books', aria: 'Navigate to the Projects section' },
+  { label: 'Skills', href: '#skills', icon: 'mdi-action-assessment', aria: 'Navigate to the Skills section' },
+  { label: 'Education', href: '#education', icon: 'mdi-social-school', aria: 'Navigate to the Education section' },
+  { label: 'Certificates', href: '#certificates', icon: 'mdi-social-school', aria: 'Navigate to the Certificates section' },
+  { label: 'Contact', href: '#contact', icon: 'mdi-content-mail', aria: 'Navigate to the Contact section' },
+];
+
 export default function Sidebar() {
   return (
-    <>
-<div className="container fluid">
-<div className="row">
-<div className="col-md-3">
-<a className="card-link" href="#">
-<div className="card list-group" id="sidebar" style={{position: 'fixed', top: '-8px', left: '0', bottom: '0', height: '800px'}}>
-<div className="card-body">
-<li className="nav-item logo">
-<a aria-label="Navigate to the beginning of the page" className="nav-link brand-logo grey-blue-text" href="#intro" id="logo-container">
-<img alt="avatar" className="circle img-responsive profile-pic" src="/images/profile.png" style={{height: '140px', width: '140px', marginTop: '-60px', marginLeft: '0px'}}/>
-</a>
-</li>
-<div className="card" style={{minWidth: '6px'}}>
-</div>
-<ul className="nav flex-column nav menu">
-<li className="nav-item" style={{marginTop: '-20px'}}>
-<a aria-label="Navigate to the About section" className="nav-link nav-link waves-effect waves-dark teal-text" href="#about">
-<i className="mdi-social-person small"></i>
-<span>About</span>
-</a>
-</li>
-<li className="nav-item">
-<a aria-label="Navigate to the Experience section" className="nav-link nav-link waves-effect waves-dark teal-text" href="#experience">
-<i className="mdi-action-trending-up small"></i>
-<span>Experience</span>
-</a>
-</li>
-<li className="nav-item">
-<a aria-label="Navigate to the Projects section" className="nav-link nav-link waves-effect waves-dark teal-text" href="#projects">
-<i className="mdi-av-my-library-books small"></i>
-<span>Projects</span>
-</a>
-</li>
-<li className="nav-item">
-<a aria-label="Navigate to the Skills section" className="nav-link nav-link waves-effect waves-dark teal-text" href="#skills">
-<i className="mdi-action-assessment small"></i>
-<span>Skills</span>
-</a>
-</li>
-<li className="nav-item">
-<a aria-label="Navigate to the Education section" className="nav-link nav-link waves-effect waves-dark teal-text" href="#education">
-<i className="mdi-social-school small"></i>
-<span>Education</span>
-</a>
-</li>
-<li className="nav-item">
-<a aria-label="Navigate to the Certificates section" className="nav-link nav-link waves-effect waves-dark teal-text" href="#certificates">
-<i className="mdi-social-school small"></i>
-<span>Certificates</span>
-</a>
-</li>
-<li className="nav-item">
-<a aria-label="Navigate to the Contact section" className="nav-link nav-link waves-effect waves-dark teal-text" href="#contact">
-<i className="mdi-content-mail small"></i>
-<span>Contact</span>
-</a>
-</li>
-<li className="nav-item">
-<a aria-label="Open Habte Selassie's resume in a new tab" className="nav-link" href="https://1drv.ms/b/s!AnRyPPgnSpsyaw2SXVdQJgJ3t8k?e=XC40Rc">
-<i className="mdi-file-folder-open small"></i>
-<span>Resume</span>
-</a>
-</li>
-<li>
-</li>
-</ul>
-</div>
-</div>
-</a></div>
-</div>
+    <aside id="sidebar" aria-label="Section navigation">
+      <a
+        aria-label="Navigate to the beginning of the page"
+        className="sidebar-avatar"
+        href="#intro"
+        id="logo-container"
+      >
+        <img alt="Habte Selassie Fitsum" src="/images/profile.png" />
+      </a>
 
-</div>
-<div className="col-md-9 offset-md-3" style={{paddingLeft: '15px'}}>
-</div>
-
-
-
-    </>
+      <ul className="sidebar-nav">
+          {NAV_ITEMS.map((item) => (
+            <li key={item.href}>
+              <a aria-label={item.aria} className="nav-link" href={item.href}>
+                <i aria-hidden="true" className={item.icon}></i>
+                <span>{item.label}</span>
+              </a>
+            </li>
+          ))}
+          <li className="sidebar-divider" aria-hidden="true"></li>
+          <li>
+            <a
+              aria-label="Open Habte Selassie's resume in a new tab"
+              className="nav-link"
+              href="https://1drv.ms/b/s!AnRyPPgnSpsyaw2SXVdQJgJ3t8k?e=XC40Rc"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <i aria-hidden="true" className="mdi-file-folder-open"></i>
+              <span>Resume</span>
+            </a>
+          </li>
+        </ul>
+    </aside>
   );
 }
